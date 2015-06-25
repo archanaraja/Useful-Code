@@ -19,5 +19,5 @@ if __name__ == "__main__":
     g = pd.read_csv(args.extra_file, sep="\t")
 
     final=pd.merge(manifest,g, on='sampleID',how='left') 
-
     final.to_csv(args.outfile,sep='\t',index=False)
+    #final.to_csv(args.outfile,sep='\t',index=False,float_format="%.0f")

@@ -2,6 +2,9 @@
 ##Usage:
 ##python create_batches.py <infile> <outfile>
 
+from optparse import OptionParser
+import sys
+
 def create_batches(fn=None,fn2=None):
 	file=open(fn2,"w")
 

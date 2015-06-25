@@ -26,9 +26,9 @@ def get_frequency(fn1=None):
 			
 			text=line.rstrip()
 			
-			fields=line.split("\t")
+			fields=text.split("\t")
 			
-			if fields[1].startswith("pmg" or "pvh"):
+			if fields[1].startswith("i"):
 	
 				sample_list.append(fields[1])
 
@@ -37,8 +37,8 @@ def get_frequency(fn1=None):
 	return sample_list
 
 
-def get_counts(fn2=None):
-	l=get_frequency()	
+def get_counts(fn1=None,fn2=None):
+	l=get_frequency(fn1)	
 	out_file=open(fn2,"w")
 
 	count_dict=collections.Counter(l)
@@ -59,7 +59,7 @@ if __name__ == "__main__":
     (options, args) = parser.parse_args()
 
     if len(args) != 2:
-        sys.stderr.write("Specify Input and outpute files\n")
+        sys.stderr.write("Specify Input and output files\n")
         parser.print_usage()
         sys.exit(1)
 
